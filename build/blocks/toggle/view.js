@@ -1,0 +1,1 @@
+import{getContext as e,store as t}from"@wordpress/interactivity";const{state:s}=t("create-block",{state:{get themeText(){return s.isDark?s.darkText:s.lightText}},actions:{toggleOpen(){const t=e();t.isOpen=!t.isOpen},toggleTheme(){s.isDark=!s.isDark}},callbacks:{logIsOpen:()=>{const{isOpen:t}=e();console.log(`Is open: ${t}`)}}});
