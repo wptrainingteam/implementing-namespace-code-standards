@@ -13,69 +13,25 @@
  * @package CreateBlock
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (! defined('ABSPATH') ) {
+  exit;
 }
 
-function register_blocks() {
-   $build_dir = __DIR__ . '/build/blocks';
-   $manifest  = __DIR__ . '/build/blocks-manifest.php';
-
-   // WP 6.8+: one-call convenience.
-   if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
-       wp_register_block_types_from_metadata_collection( $build_dir, $manifest );
-       return;
-   }
-
-   // WP 6.7: index the collection, then loop and register each block from metadata.
-   if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
-       wp_register_block_metadata_collection( $build_dir, $manifest );
-       $manifest_data = require $manifest;
-       foreach ( array_keys( $manifest_data ) as $block_type ) {
-           register_block_type_from_metadata( $build_dir . '/' . $block_type );
-       }
-       return;
-   }
-
-   // WP 5.5-6.6: no collection APIs; just loop the manifest directly.
-   if ( function_exists( 'register_block_type_from_metadata' ) ) {
-       $manifest_data = require $manifest;
-       foreach ( array_keys( $manifest_data ) as $block_type ) {
-           register_block_type_from_metadata( $build_dir . '/' . $block_type );
-       }
-       return;
-   }
+// Include Composer's autoload file.
+if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
+  require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+} else {
+  wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
+  return;
 }
-add_action( 'init', 'register_blocks' );
 
-/**
-* Enqueues the block assets for the editor
-*/
-function enqueue_block_assets() {
-  $asset_file = include plugin_dir_path( __FILE__ ) . 'build/editor-script.asset.php';
+// Instantiate the classes.
+$advanced_multi_block_classes = array(
+  \Advanced_Multi_Block\Plugin_Paths::class,
+  \Advanced_Multi_Block\Register_Blocks::class,
+  \Advanced_Multi_Block\Enqueues::class,
+);
 
-  wp_enqueue_script(
-      'editor-script-js',
-      plugin_dir_url( __FILE__ ) . 'build/editor-script.js',
-      $asset_file['dependencies'],
-      $asset_file['version'],
-      false
-  );
+foreach ( $advanced_multi_block_classes as $advanced_multi_block_class ) {
+  new $advanced_multi_block_class();
 }
-add_action( 'enqueue_block_editor_assets', 'enqueue_block_assets' );
-
-/**
-* Enqueues the block assets for the frontend
-*/
-function enqueue_frontend_assets() {
-  $asset_file = include plugin_dir_path( __FILE__ ) . 'build/frontend-script.asset.php';
-
-  wp_enqueue_script(
-      'frontend-script-js',
-      plugin_dir_url( __FILE__ ) . 'build/frontend-script.js',
-      $asset_file['dependencies'],
-      $asset_file['version'],
-      true
-  );
-}
-add_action( 'wp_enqueue_scripts', 'enqueue_frontend_assets' );
