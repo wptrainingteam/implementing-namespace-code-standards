@@ -3,7 +3,7 @@
         'name' => 'wp-dev-blog/refactor-multi-block-plugin',
         'pretty_version' => 'dev-trunk',
         'version' => 'dev-trunk',
-        'reference' => 'a1f9dfc92425ac85a0a75ceae5f7aa05c0227dd6',
+        'reference' => '500112a2822315caeaf450797e0e8471f83e37ad',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -58,7 +58,7 @@
         'wp-dev-blog/refactor-multi-block-plugin' => array(
             'pretty_version' => 'dev-trunk',
             'version' => 'dev-trunk',
-            'reference' => 'a1f9dfc92425ac85a0a75ceae5f7aa05c0227dd6',
+            'reference' => '500112a2822315caeaf450797e0e8471f83e37ad',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
