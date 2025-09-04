@@ -7,7 +7,7 @@
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build --experimental-modules --blocks-manifest",
-		"lint": "npm-run-all run lint:*",
+		"lint": "npm-run-all lint:*",
 		"format": "npm-run-all format:*",
 		"lint:css": "wp-scripts lint-style",
 		"format:css": "wp-scripts lint-style --fix",
