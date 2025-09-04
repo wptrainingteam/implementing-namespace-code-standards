@@ -18,20 +18,20 @@ if (! defined('ABSPATH') ) {
 }
 
 // Include our bundled autoload if not loaded globally.
-if ( ! class_exists( \Advanced_Multi_Block\Plugin_Paths::class ) && file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+if ( ! class_exists( Advanced_Multi_Block\Plugin_Paths::class ) && file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
   require_once __DIR__ . '/vendor/autoload.php';
 }
 
-if ( ! class_exists( \Advanced_Multi_Block\Plugin_Paths::class ) ) {
+if ( ! class_exists( Advanced_Multi_Block\Plugin_Paths::class ) ) {
   wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
   return;
 }
 
 // Instantiate the classes.
 $advanced_multi_block_classes = array(
-  \Advanced_Multi_Block\Plugin_Paths::class,
-  \Advanced_Multi_Block\Register_Blocks::class,
-  \Advanced_Multi_Block\Enqueues::class,
+  Advanced_Multi_Block\Plugin_Paths::class,
+  Advanced_Multi_Block\Register_Blocks::class,
+  Advanced_Multi_Block\Enqueues::class,
 );
 
 foreach ( $advanced_multi_block_classes as $advanced_multi_block_class ) {
