@@ -27,13 +27,15 @@ if ( ! class_exists( Advanced_Multi_Block\Plugin_Paths::class ) ) {
 	return;
 }
 
-// Instantiate the classes.
-$advanced_multi_block_classes = array(
-	Advanced_Multi_Block\Plugin_Paths::class,
-	Advanced_Multi_Block\Register_Blocks::class,
-	Advanced_Multi_Block\Enqueues::class,
+// Instantiate our modules.
+$advanced_multi_block_modules = array(
+	new Advanced_Multi_Block\Register_Blocks( __DIR__ . '/build' ),
+	new Advanced_Multi_Block\Enqueues( __DIR__ . '/build' ),
 );
 
-foreach ( $advanced_multi_block_classes as $advanced_multi_block_class ) {
-	new $advanced_multi_block_class();
+
+foreach ( $advanced_multi_block_modules as $advanced_multi_block_module ) {
+	if ( is_a( $advanced_multi_block_module, Advanced_Multi_Block\Plugin_Module::class ) ) {
+		$advanced_multi_block_module->init();
+	}
 }
