@@ -4,10 +4,6 @@ namespace Advanced_Multi_Block;
 
 use Advanced_Multi_Block\Plugin_Paths;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 class Enqueues {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_assets' ) );

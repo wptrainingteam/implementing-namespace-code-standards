@@ -2,10 +2,6 @@
 
 namespace Advanced_Multi_Block;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 class Plugin_Paths {
 	public static function plugin_url() {
 		return plugin_dir_url( __DIR__ );

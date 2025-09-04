@@ -4,10 +4,6 @@ namespace Advanced_Multi_Block;
 
 use Advanced_Multi_Block\Plugin_Paths;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 class Register_Blocks {
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_blocks' ) );
