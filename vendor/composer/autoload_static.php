@@ -22,7 +22,7 @@ class ComposerStaticInitbffc188469708dc08fa1a039ff3d19d5
 
     public static $classMap = array (
         'Advanced_Multi_Block\\Enqueues' => __DIR__ . '/../..' . '/classes/class-enqueues.php',
-        'Advanced_Multi_Block\\Plugin_Module' => __DIR__ . '/../..' . '/classes/class-module.php',
+        'Advanced_Multi_Block\\Plugin_Module' => __DIR__ . '/../..' . '/classes/class-plugin-module.php',
         'Advanced_Multi_Block\\Plugin_Paths' => __DIR__ . '/../..' . '/classes/class-plugin-paths.php',
         'Advanced_Multi_Block\\Register_Blocks' => __DIR__ . '/../..' . '/classes/class-register-blocks.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
