@@ -17,4 +17,22 @@
 
 	<!-- Rules: WordPress Coding Standards -->
 	<rule ref="WordPress" />
+
+	<!-- Ensure that all variables in global context start with this prefix -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="advanced_multi_block"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Ensure that all text-domains use our custom value. -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="advanced-multi-block"/>
+			</property>
+		</properties>
+	</rule>
 </ruleset>
