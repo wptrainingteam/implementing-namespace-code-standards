@@ -16,32 +16,5 @@
   <arg name="parallel" value="4"/>
 
   <!-- Rules: WordPress Coding Standards -->
-  <config name="minimum_supported_wp_version" value="6.6"/>
- 
-  <rule ref="WordPress">
-      <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
-      <exclude name="Generic.Functions.CallTimePassByReference"/>
-      <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
-  </rule>
- 
-  <rule ref="WordPress.Arrays.MultipleStatementAlignment">
-      <properties>
-          <property name="maxColumn" value="80"/>
-      </properties>
-  </rule>
-
-  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">      <properties>
-          <property name="prefixes" type="array">
-              <element value="Advanced_Multi_Block"/>
-          </property>
-      </properties>
-  </rule>
-
-  <rule ref="WordPress.WP.I18n">
-      <properties>
-          <property name="text_domain" type="array">
-              <element value="advanced-multi-block"/>
-          </property>
-      </properties>
-  </rule>
+  <rule ref="WordPress" />
 </ruleset>
