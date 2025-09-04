@@ -1,16 +1,35 @@
 <?php
+/**
+ * Enqueue assets.
+ *
+ * @package Advanced_Multi_Block
+ */
 
 namespace Advanced_Multi_Block;
 
-use PHPCSStandards\Composer\Plugin\Installers\PHPCodeSniffer\Plugin;
-
+/**
+ * Enqueues class.
+ */
 class Enqueues extends Plugin_Module {
+	/**
+	 * Path resolver for build directory.
+	 *
+	 * @var Plugin_Paths
+	 */
 	private Plugin_Paths $build_dir;
 
+	/**
+	 * Setup the class.
+	 *
+	 * @param string $build_path Absolute path to the build directory for all assets.
+	 */
 	public function __construct( string $build_path ) {
 		$this->build_dir = new Plugin_Paths( $build_path );
 	}
 
+	/**
+	 * Initialize the module.
+	 */
 	public function init() {
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_assets' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );

@@ -1,18 +1,42 @@
 <?php
+/**
+ * Register our blocks.
+ *
+ * @package Advanced_Multi_Block
+ */
 
 namespace Advanced_Multi_Block;
 
+/**
+ * Register blocks class.
+ */
 class Register_Blocks extends Plugin_Module {
+	/**
+	 * Path resolver for blocks directory.
+	 *
+	 * @var Plugin_Paths
+	 */
 	private Plugin_Paths $blocks_dir;
 
+	/**
+	 * Setup the class.
+	 *
+	 * @param string $blocks_dir Absolute path to the built directory.
+	 */
 	public function __construct( string $blocks_dir ) {
 		$this->blocks_dir = new Plugin_Paths( $blocks_dir );
 	}
 
+	/**
+	 * Initialize the module.
+	 */
 	public function init() {
 		add_action( 'init', array( $this, 'register_blocks' ) );
 	}
 
+	/**
+	 * Register blocks.
+	 */
 	public function register_blocks() {
 		$blocks_manifest_path = $this->blocks_dir->get_path( 'blocks-manifest.php' );
 
