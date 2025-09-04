@@ -17,10 +17,12 @@ if (! defined('ABSPATH') ) {
   exit;
 }
 
-// Include Composer's autoload file.
-if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
-  require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-} else {
+// Include our bundled autoload if not loaded globally.
+if ( ! class_exists( \Advanced_Multi_Block\Plugin_Paths::class ) && file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+  require_once __DIR__ . '/vendor/autoload.php';
+}
+
+if ( ! class_exists( \Advanced_Multi_Block\Plugin_Paths::class ) ) {
   wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
   return;
 }
