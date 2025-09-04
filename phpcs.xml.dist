@@ -7,8 +7,6 @@
   <exclude-pattern>/build/</exclude-pattern>
   <exclude-pattern>/node_modules/</exclude-pattern>
   <exclude-pattern>/vendor/</exclude-pattern>
-  <exclude-pattern>src/blocks-manifest.php</exclude-pattern>
-  <exclude-pattern>build/*.asset.php</exclude-pattern>
 
   <!-- How to scan -->
   <arg value="sp"/>
@@ -32,8 +30,7 @@
       </properties>
   </rule>
 
-  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
-      <properties>
+  <rule ref="WordPress.NamingConventions.PrefixAllGlobals">      <properties>
           <property name="prefixes" type="array">
               <element value="Advanced_Multi_Block"/>
           </property>
