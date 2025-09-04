@@ -4,9 +4,9 @@
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"autoload": {
-		"psr-4": {
-			"Advanced_Multi_Block\\": "classes/"
-		}
+		"classmap": [
+			"classes/"
+		]
 	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.1"
