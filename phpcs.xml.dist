@@ -4,16 +4,16 @@
 
   <!-- What to scan -->
   <file>.</file>
+
   <exclude-pattern>/build/</exclude-pattern>
   <exclude-pattern>/node_modules/</exclude-pattern>
   <exclude-pattern>/vendor/</exclude-pattern>
 
   <!-- How to scan -->
-  <arg value="sp"/>
-  <arg name="basepath" value="."/>
+  <arg value="sp"/><!-- Set -s to include sniff rules in report and -p to enable progress reporting.  -->
+  <arg name="basepath" value="."/><!-- Report file paths relative to the current directory. -->
   <arg name="colors"/>
-  <arg name="extensions" value="php"/>
-  <arg name="parallel" value="4"/>
+  <arg name="extensions" value="php"/><!-- Scan only PHP files. -->
 
   <!-- Rules: WordPress Coding Standards -->
   <rule ref="WordPress" />
