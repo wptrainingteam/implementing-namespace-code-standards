@@ -27,10 +27,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
-	
+
 	return (
-		<p { ...blockProps }>
-			{ __( 'Toggle – hello from the editor!', 'advanced-multi-block' ) }
-		</p>
+		<p { ...blockProps }>{ __( 'Toggle – hello from the editor!', 'advanced-multi-block' ) }</p>
 	);
 }

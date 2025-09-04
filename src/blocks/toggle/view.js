@@ -7,7 +7,7 @@ const { state } = store( 'create-block', {
 	state: {
 		get themeText() {
 			return state.isDark ? state.darkText : state.lightText;
-		}
+		},
 	},
 	actions: {
 		toggleOpen() {
@@ -16,7 +16,7 @@ const { state } = store( 'create-block', {
 		},
 		toggleTheme() {
 			state.isDark = ! state.isDark;
-		}
+		},
 	},
 	callbacks: {
 		logIsOpen: () => {
