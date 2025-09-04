@@ -13,7 +13,7 @@
  */
 
 // Generates a unique id for aria-controls.
-$unique_id = wp_unique_id( 'p-' );
+$advanced_multi_block_unique_id = wp_unique_id( 'p-' );
 
 // Adds the global state.
 wp_interactivity_state(
@@ -42,13 +42,13 @@ wp_interactivity_state(
 	<button
 		data-wp-on--click="actions.toggleOpen"
 		data-wp-bind--aria-expanded="context.isOpen"
-		aria-controls="<?php echo esc_attr( $unique_id ); ?>"
+		aria-controls="<?php echo esc_attr( $advanced_multi_block_unique_id ); ?>"
 	>
 		<?php esc_html_e( 'Toggle', 'advanced-multi-block' ); ?>
 	</button>
 
 	<p
-		id="<?php echo esc_attr( $unique_id ); ?>"
+		id="<?php echo esc_attr( $advanced_multi_block_unique_id ); ?>"
 		data-wp-bind--hidden="!context.isOpen"
 	>
 		<?php
