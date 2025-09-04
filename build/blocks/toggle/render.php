@@ -20,7 +20,7 @@ wp_interactivity_state(
 		'isDark'    => false,
 		'darkText'  => esc_html__( 'Switch to Light', 'advanced-multi-block' ),
 		'lightText' => esc_html__( 'Switch to Dark', 'advanced-multi-block' ),
-		'themeText'	=> esc_html__( 'Switch to Dark', 'advanced-multi-block' ),
+		'themeText' => esc_html__( 'Switch to Dark', 'advanced-multi-block' ),
 	)
 );
 ?>

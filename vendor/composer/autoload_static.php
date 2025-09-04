@@ -11,10 +11,6 @@ class ComposerStaticInitbffc188469708dc08fa1a039ff3d19d5
         array (
             'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 57,
         ),
-        'A' => 
-        array (
-            'Advanced_Multi_Block\\' => 21,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -22,13 +18,13 @@ class ComposerStaticInitbffc188469708dc08fa1a039ff3d19d5
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'Advanced_Multi_Block\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Functions',
-        ),
     );
 
     public static $classMap = array (
+        'Advanced_Multi_Block\\Enqueues' => __DIR__ . '/../..' . '/classes/class-enqueues.php',
+        'Advanced_Multi_Block\\Plugin_Module' => __DIR__ . '/../..' . '/classes/class-plugin-module.php',
+        'Advanced_Multi_Block\\Plugin_Paths' => __DIR__ . '/../..' . '/classes/class-plugin-paths.php',
+        'Advanced_Multi_Block\\Register_Blocks' => __DIR__ . '/../..' . '/classes/class-register-blocks.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'PHPCSUtils\\AbstractSniffs\\AbstractArrayDeclarationSniff' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/AbstractSniffs/AbstractArrayDeclarationSniff.php',
         'PHPCSUtils\\BackCompat\\BCFile' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCFile.php',

@@ -6,6 +6,10 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Advanced_Multi_Block\\Enqueues' => $baseDir . '/classes/class-enqueues.php',
+    'Advanced_Multi_Block\\Plugin_Module' => $baseDir . '/classes/class-plugin-module.php',
+    'Advanced_Multi_Block\\Plugin_Paths' => $baseDir . '/classes/class-plugin-paths.php',
+    'Advanced_Multi_Block\\Register_Blocks' => $baseDir . '/classes/class-register-blocks.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'PHPCSUtils\\AbstractSniffs\\AbstractArrayDeclarationSniff' => $vendorDir . '/phpcsstandards/phpcsutils/PHPCSUtils/AbstractSniffs/AbstractArrayDeclarationSniff.php',
     'PHPCSUtils\\BackCompat\\BCFile' => $vendorDir . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCFile.php',

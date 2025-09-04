@@ -7,7 +7,7 @@ const { state } = store( 'create-block', {
 	state: {
 		get themeText() {
 			return state.isDark ? state.darkText : state.lightText;
-		}
+		},
 	},
 	actions: {
 		toggleOpen() {
@@ -16,13 +16,13 @@ const { state } = store( 'create-block', {
 		},
 		toggleTheme() {
 			state.isDark = ! state.isDark;
-		}
+		},
 	},
 	callbacks: {
 		logIsOpen: () => {
 			const { isOpen } = getContext();
 			// Log the value of `isOpen` each time it changes.
-			console.log( `Is open: ${ isOpen }` );
+			console.log( `Is open: ${ isOpen }` ); // eslint-disable-line no-console
 		},
 	},
 } );

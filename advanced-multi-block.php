@@ -13,25 +13,29 @@
  * @package CreateBlock
  */
 
-if (! defined('ABSPATH') ) {
-  exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-// Include Composer's autoload file.
-if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
-  require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-} else {
-  wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
-  return;
+// Include our bundled autoload if not loaded globally.
+if ( ! class_exists( Advanced_Multi_Block\Plugin_Paths::class ) && file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
 }
 
-// Instantiate the classes.
-$advanced_multi_block_classes = array(
-  \Advanced_Multi_Block\Plugin_Paths::class,
-  \Advanced_Multi_Block\Register_Blocks::class,
-  \Advanced_Multi_Block\Enqueues::class,
+if ( ! class_exists( Advanced_Multi_Block\Plugin_Paths::class ) ) {
+	wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
+	return;
+}
+
+// Instantiate our modules.
+$advanced_multi_block_modules = array(
+	new Advanced_Multi_Block\Register_Blocks( __DIR__ . '/build' ),
+	new Advanced_Multi_Block\Enqueues( __DIR__ . '/build' ),
 );
 
-foreach ( $advanced_multi_block_classes as $advanced_multi_block_class ) {
-  new $advanced_multi_block_class();
+
+foreach ( $advanced_multi_block_modules as $advanced_multi_block_module ) {
+	if ( is_a( $advanced_multi_block_module, Advanced_Multi_Block\Plugin_Module::class ) ) {
+		$advanced_multi_block_module->init();
+	}
 }

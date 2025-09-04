@@ -1,23 +1,23 @@
 {
-  "name": "wp-dev-blog/refactor-multi-block-plugin",
-  "description": "An advanced multi block plugin with custom functionality.",
-  "type": "wordpress-plugin",
-  "license": "GPL-2.0-or-later",
-  "autoload": {
-      "psr-4": {
-          "Advanced_Multi_Block\\": "Functions/"
-      }
-  },
-  "require-dev": {
-      "wp-coding-standards/wpcs": "^3.1"
-  },
-  "config": {
-      "allow-plugins": {
-          "dealerdirect/phpcodesniffer-composer-installer": true
-      }
-  },
-  "scripts": {
-      "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source || true",
-      "lint": "phpcs --standard=phpcs.xml.dist"
-  }
+	"name": "wp-dev-blog/refactor-multi-block-plugin",
+	"description": "An advanced multi block plugin with custom functionality.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"autoload": {
+		"classmap": [
+			"classes/"
+		]
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.2"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"scripts": {
+		"format": "phpcbf",
+		"lint": "phpcs"
+	}
 }

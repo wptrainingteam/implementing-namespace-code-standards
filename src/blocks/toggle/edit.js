@@ -25,9 +25,10 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
+// eslint-disable-next-line no-unused-vars
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
-	
+
 	return (
 		<p { ...blockProps }>
 			{ __( 'Toggle – hello from the editor!', 'advanced-multi-block' ) }
