@@ -17,7 +17,7 @@
       }
   },
   "scripts": {
-      "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source || true",
-      "lint": "phpcs --standard=phpcs.xml.dist"
+      "format": "phpcbf",
+      "lint": "phpcs"
   }
 }
