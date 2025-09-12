@@ -13,6 +13,8 @@
  * @package CreateBlock
  */
 
+namespace Advanced_Multi_Block;
+
 if (! defined('ABSPATH') ) {
   exit;
 }
