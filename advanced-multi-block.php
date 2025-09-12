@@ -18,6 +18,14 @@ namespace Advanced_Multi_Block;
 if (! defined('ABSPATH') ) {
   exit;
 }
+// Include Composer's autoload file.
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+  require_once __DIR__ . '/vendor/autoload.php';
+} else {
+  wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
+  return;
+}
+
 /**
  * Define the directory path to the plugin file.
  *
@@ -35,14 +43,6 @@ const PLUGIN_DIR = __DIR__;
  * links, and more.
  */
 const PLUGIN_FILE = __FILE__;
-
-// Include Composer's autoload file.
-if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
-  require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-} else {
-  wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
-  return;
-}
 
 // Instantiate the classes.
 $advanced_multi_block_classes = array(
