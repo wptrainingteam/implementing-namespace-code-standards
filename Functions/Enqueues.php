@@ -2,8 +2,6 @@
 
 namespace Advanced_Multi_Block;
 
-use Advanced_Multi_Block\Plugin_Paths;
-
 if ( ! defined( 'ABSPATH' ) ) {
   exit;
 }
@@ -18,11 +16,11 @@ class Enqueues {
     * Enqueues the block assets for the editor
     */
   public function enqueue_block_assets() {
-      $asset_file = include Plugin_Paths::plugin_path() . 'build/editor-script.asset.php';
+      $asset_file = include PLUGIN_DIR . '/build/editor-script.asset.php';
 
       wp_enqueue_script(
           'editor-script-js',
-          Plugin_Paths::plugin_url() . 'build/editor-script.js',
+          plugin_dir_url( PLUGIN_FILE ) . 'build/editor-script.js',
           $asset_file['dependencies'],
           $asset_file['version'],
           false
@@ -33,11 +31,11 @@ class Enqueues {
     * Enqueues the block assets for the frontend
     */
   public function enqueue_frontend_assets() {
-      $asset_file = include Plugin_Paths::plugin_path() . 'build/frontend-script.asset.php';
+      $asset_file = include PLUGIN_DIR . '/build/frontend-script.asset.php';
 
       wp_enqueue_script(
           'frontend-script-js',
-          Plugin_Paths::plugin_url() . 'build/frontend-script.js',
+          plugin_dir_url( PLUGIN_FILE ) . 'build/frontend-script.js',
           $asset_file['dependencies'],
           $asset_file['version'],
           true
