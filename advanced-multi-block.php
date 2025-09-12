@@ -18,6 +18,23 @@ namespace Advanced_Multi_Block;
 if (! defined('ABSPATH') ) {
   exit;
 }
+/**
+ * Define the directory path to the plugin file.
+ *
+ * This constant provides a convenient reference to the plugin's directory path,
+ * useful for including or requiring files quickly relative to the plugin's
+ * directory.
+ */
+const PLUGIN_DIR = __DIR__;
+
+/**
+ * Define the path to the plugin file.
+ *
+ * This path can be used in various contexts, such as managing the activation
+ * and deactivation processes, loading the plugin text domain, adding action
+ * links, and more.
+ */
+const PLUGIN_FILE = __FILE__;
 
 // Include Composer's autoload file.
 if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
