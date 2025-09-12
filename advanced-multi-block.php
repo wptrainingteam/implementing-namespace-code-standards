@@ -46,9 +46,8 @@ if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
 
 // Instantiate the classes.
 $advanced_multi_block_classes = array(
-  \Advanced_Multi_Block\Plugin_Paths::class,
-  \Advanced_Multi_Block\Register_Blocks::class,
-  \Advanced_Multi_Block\Enqueues::class,
+	Register_Blocks::class,
+	Enqueues::class,
 );
 
 foreach ( $advanced_multi_block_classes as $advanced_multi_block_class ) {
