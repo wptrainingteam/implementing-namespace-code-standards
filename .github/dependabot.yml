@@ -1,0 +1,20 @@
+# Dependabot configuration for both Composer and npm dependencies
+# Based on the WP Training Team Dependabot guide (Example 3).
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directory: "/"              # location of composer.json
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "troychaplin"
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: "npm"
+    directory: "/"              # location of package.json
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "troychaplin"
+    open-pull-requests-limit: 10
