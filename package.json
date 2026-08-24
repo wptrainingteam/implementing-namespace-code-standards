@@ -20,7 +20,7 @@
 		"start": "wp-scripts start --experimental-modules --blocks-manifest"
 	},
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^22.15.0",
+		"@wordpress/eslint-plugin": "^25.9.0",
 		"@wordpress/prettier-config": "^4.29.0",
 		"@wordpress/scripts": "^30.22.0",
 		"@wordpress/stylelint-config": "^23.21.0",
