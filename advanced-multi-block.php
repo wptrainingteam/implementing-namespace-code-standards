@@ -21,7 +21,14 @@ if (! defined('ABSPATH') ) {
 if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
   require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 } else {
-  wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
+  $advanced_multi_block_autoload_error = __( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', 'advanced-multi-block' );
+
+  if ( function_exists( 'wp_trigger_error' ) ) {
+    wp_trigger_error( __FILE__, $advanced_multi_block_autoload_error, E_USER_ERROR );
+  } else {
+    trigger_error( esc_html( $advanced_multi_block_autoload_error ), E_USER_ERROR ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error -- fallback for WordPress < 7.0, where wp_trigger_error() does not exist.
+  }
+
   return;
 }
 
