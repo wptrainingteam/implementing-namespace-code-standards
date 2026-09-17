@@ -24,6 +24,10 @@
       <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
       <exclude name="Generic.Functions.CallTimePassByReference"/>
       <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
+      <!-- Classes are namespaced and autoloaded via Composer's PSR-4, so filenames -->
+      <!-- match class names rather than the classic class-{name}.php convention. -->
+      <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+      <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
   </rule>
  
   <rule ref="WordPress.Arrays.MultipleStatementAlignment">
