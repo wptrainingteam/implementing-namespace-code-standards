@@ -26,6 +26,6 @@
 		"@wordpress/stylelint-config": "^25.0.0",
 		"eslint-config-prettier": "^10.1.8",
 		"stylelint": "^16.23.1",
-		"stylelint-scss": "^6.12.1"
+		"stylelint-scss": "^7.3.0"
 	}
 }
