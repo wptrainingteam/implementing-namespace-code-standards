@@ -7,11 +7,12 @@
  *     $content (string): The block default content.
  *     $block (WP_Block): The block instance.
  *
+ * @package Advanced_Multi_Block
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
 // Generates a unique id for aria-controls.
-$unique_id = wp_unique_id( 'p-' );
+$advanced_multi_block_unique_id = wp_unique_id( 'p-' );
 
 // Adds the global state.
 wp_interactivity_state(
@@ -20,15 +21,15 @@ wp_interactivity_state(
 		'isDark'    => false,
 		'darkText'  => esc_html__( 'Switch to Light', 'advanced-multi-block' ),
 		'lightText' => esc_html__( 'Switch to Dark', 'advanced-multi-block' ),
-		'themeText'	=> esc_html__( 'Switch to Dark', 'advanced-multi-block' ),
+		'themeText' => esc_html__( 'Switch to Dark', 'advanced-multi-block' ),
 	)
 );
 ?>
 
 <div
-	<?php echo get_block_wrapper_attributes(); ?>
+	<?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- get_block_wrapper_attributes() escapes its own output. ?>
 	data-wp-interactive="create-block"
-	<?php echo wp_interactivity_data_wp_context( array( 'isOpen' => false ) ); ?>
+	<?php echo wp_interactivity_data_wp_context( array( 'isOpen' => false ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_interactivity_data_wp_context() escapes its own output. ?>
 	data-wp-watch="callbacks.logIsOpen"
 	data-wp-class--dark-theme="state.isDark"
 >
@@ -40,13 +41,13 @@ wp_interactivity_state(
 	<button
 		data-wp-on--click="actions.toggleOpen"
 		data-wp-bind--aria-expanded="context.isOpen"
-		aria-controls="<?php echo esc_attr( $unique_id ); ?>"
+		aria-controls="<?php echo esc_attr( $advanced_multi_block_unique_id ); ?>"
 	>
 		<?php esc_html_e( 'Toggle', 'advanced-multi-block' ); ?>
 	</button>
 
 	<p
-		id="<?php echo esc_attr( $unique_id ); ?>"
+		id="<?php echo esc_attr( $advanced_multi_block_unique_id ); ?>"
 		data-wp-bind--hidden="!context.isOpen"
 	>
 		<?php
