@@ -13,23 +13,41 @@
  * @package CreateBlock
  */
 
+namespace Advanced_Multi_Block;
+
 if (! defined('ABSPATH') ) {
   exit;
 }
-
 // Include Composer's autoload file.
-if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
-  require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+  require_once __DIR__ . '/vendor/autoload.php';
 } else {
   wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
   return;
 }
 
+/**
+ * Define the directory path to the plugin file.
+ *
+ * This constant provides a convenient reference to the plugin's directory path,
+ * useful for including or requiring files quickly relative to the plugin's
+ * directory.
+ */
+const PLUGIN_DIR = __DIR__;
+
+/**
+ * Define the path to the plugin file.
+ *
+ * This path can be used in various contexts, such as managing the activation
+ * and deactivation processes, loading the plugin text domain, adding action
+ * links, and more.
+ */
+const PLUGIN_FILE = __FILE__;
+
 // Instantiate the classes.
 $advanced_multi_block_classes = array(
-  \Advanced_Multi_Block\Plugin_Paths::class,
-  \Advanced_Multi_Block\Register_Blocks::class,
-  \Advanced_Multi_Block\Enqueues::class,
+	Register_Blocks::class,
+	Enqueues::class,
 );
 
 foreach ( $advanced_multi_block_classes as $advanced_multi_block_class ) {
