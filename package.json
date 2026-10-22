@@ -20,12 +20,12 @@
 		"start": "wp-scripts start --experimental-modules --blocks-manifest"
 	},
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^25.9.0",
+		"@wordpress/eslint-plugin": "^27.1.0",
 		"@wordpress/prettier-config": "^4.57.0",
-		"@wordpress/scripts": "^36.0.0",
+		"@wordpress/scripts": "^36.1.0",
 		"@wordpress/stylelint-config": "^26.1.0",
 		"eslint-config-prettier": "^10.1.8",
-		"stylelint": "^16.23.1",
-		"stylelint-scss": "^6.12.1"
+		"stylelint": "^17.16.0",
+		"stylelint-scss": "^7.3.0"
 	}
 }
