@@ -13,25 +13,25 @@
  * @package CreateBlock
  */
 
-if (! defined('ABSPATH') ) {
-  exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 // Include Composer's autoload file.
 if ( file_exists( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' ) ) {
-  require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 } else {
-  wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
-  return;
+	wp_trigger_error( 'Advanced Multi Block Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
+	return;
 }
 
 // Instantiate the classes.
 $advanced_multi_block_classes = array(
-  \Advanced_Multi_Block\Plugin_Paths::class,
-  \Advanced_Multi_Block\Register_Blocks::class,
-  \Advanced_Multi_Block\Enqueues::class,
+	\Advanced_Multi_Block\Plugin_Paths::class,
+	\Advanced_Multi_Block\Register_Blocks::class,
+	\Advanced_Multi_Block\Enqueues::class,
 );
 
 foreach ( $advanced_multi_block_classes as $advanced_multi_block_class ) {
-  new $advanced_multi_block_class();
+	new $advanced_multi_block_class();
 }
